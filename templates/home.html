@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home Page{% endblock title %}
+{% block body %}
+  {% block header %}
+  <header>
+  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <img
+      src="{% static 'apple.svg' %}"
+      width="40"
+      height="32"
+      class="me-2"
+      viewBox="0 0 118 94"
+      role="img"
+    ></img>
+      <span class="fs-4">Apple</span>
+    </a>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <a class="me-3 py-2 text-primary text-decoration-none" href="/">Features</a>
+      <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="#">Accessories</a> -->
+      <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'pricing' %}">Pricing</a>
+      <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'checkout' %}">Shop</a>
+    </nav>
+  </div>
+  </header> 
+  {% endblock header %}
+<main>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 fw-normal">Iphone 14 Pro!</h1>
+    <p class="lead fw-normal">Ready to blow your mind, Get ready for hand-on experience on A-16 Bionic chip & IOS 16</p>
+    <a class="btn btn-outline-secondary" href="{% url 'pricing' %}">Pre-Order now!</a>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<!-- First Row -->
+<div class="d-md-flex flex-md-equal justify-content-between w-100 my-md-3 ps-md-3 bg-dark">
+  <!-- First Element -->
+  <div class="bg-dark pt-3 px-5 me-md-5 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Camera Features</h2>
+      <p class="lead">Do you know what Pro-RAW is?</p>            
+    </div>
+    <img src="{% static 'pic4.jpg' %}" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+  </div>
+
+  <!-- Second Element -->
+  <div class="bg-light pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Design</h2>
+      <p class="lead">Ever liestend Gorilla Glass X?</p>
+    </div>
+    <!--<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
+    <img src="{% static 'pic1.jpg' %}" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+  </div>
+</div>
+
+<!-- last Row -->
+<div class="d-inline-flex w-100 my-md-3 ps-md-3 justify-content-between bg-dark">
+  <!-- First Element -->
+  <div class="bg-light pt-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Airpods 4</h2>
+      <p class="lead">Why not studio?</p>
+    </div>
+    <!--<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
+    <img src="{% static 'pic2.jpg' %}" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+  </div>
+  
+  <!-- Second Element -->
+  <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Accidental Cover</h2>
+      <p class="lead">How it feels to throw a 2K$ device?</p>
+    </div>
+    <!--<div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
+    <img src="{% static 'pic3.jpg' %}" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+  </div>
+</div>
+</main>
+{% endblock body %}

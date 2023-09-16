@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Pricing Page{% endblock title %}
+{% block body %}
+  {% block header %}
+    <header>
+      <div
+        class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center text-dark text-decoration-none"
+        >
+        <img
+        src="{% static 'apple.svg' %}"
+        width="40"
+        height="32"
+        class="me-2"
+        viewBox="0 0 118 94"
+        role="img"
+      ></img>
+          <span class="fs-4">Apple</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/">Features</a>
+          <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="#">Accessories</a> -->
+          <a class="me-3 py-2 text-primary text-decoration-none" href="{% url 'pricing' %}">Pricing</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'checkout' %}">Shop</a>
+        </nav>
+      </div>
+    </header>
+  {% endblock header %}
+ <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 fw-normal">Pricing</h1>
+  <p class="fs-5 text-muted">
+    Iphone comes with various pricing plans for potential
+    customers with extra security features by default. Following the 
+    previous heritage, it is still best phone on Earth!
+  </p>
+</div>
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      {% comment %} card1 {% endcomment %}
+    <form method="post" name="base" action="/checkout">
+      {% csrf_token %} 
+      {% comment %} <input  id="space" type="text" name="space"  placeholder="Enter Space..." >  {% endcomment %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div id="card1" style="background-color: #0d6efd" class="card-header py-3">
+            <h4 id="head1" style="color: antiquewhite" class="my-0 fw-normal">Base</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+              $50<small class="text-muted fw-light">/mo</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>16% TAX included</li>
+              <li>128 GB</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <!-- <a href="{% url 'checkout' %}"> -->
+            <button
+              type="submit"
+              class="w-100 btn btn-lg btn-outline-primary"
+              id="btn_base"
+              name='base'
+              value='base'
+            >
+              Order Now
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+      {% comment %} card2 {% endcomment %}
+      <form method="post" name="pro" action="/checkout">
+        {% csrf_token %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div id="card2" style="background-color: #0d6efd" class="card-header py-3">
+            <h4 id="head2" style="color: antiquewhite" class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+              $75<small class="text-muted fw-light">/mo</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10% TAX included</li>
+              <li>256 GB of storage</li>
+              <li>Priority email support</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="{% url 'checkout' %}">
+            <button type="submit" class="w-100 btn btn-lg btn-outline-primary" 
+            name='pro'
+            value='pro'>
+              Get Now
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+
+      {% comment %} card3 {% endcomment %}
+      <form method="post" name="pro max" action="/checkout">
+        {% csrf_token %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div id="card3"
+            class="card-header py-3"
+            style="background-color: #0d6efd"
+          >
+            <h4 id="head3" style="color: antiquewhite" class="my-0 fw-normal">Pro Max</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+              $125<small class="text-muted fw-light">/mo</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>5% TAX included</li>
+              <li>512 GB of storage</li>
+              <li>Phone and email support</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="{% url 'checkout' %}">
+            <button type="submit" class="w-100 btn btn-lg btn-outline-primary"
+              name='pro max'
+              value='pro max'
+              >
+              Why Not?
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+    {% comment %} Plans Comparison {% endcomment %}
+    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 34%"></th>
+            <th style="width: 22%">Base</th>
+            <th style="width: 22%">Pro</th>
+            <th style="width: 22%">Pro Max</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Adapter</th>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Lightning Cable</th>
+            <td></td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Apple support</th>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Sharing</th>
+            <td></td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Unlimited service</th>
+            <td></td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Extra security</th>
+            <td></td>
+            <td></td>
+            <td>
+              <img src="{% static 'check.svg' %}" width="24" height="24">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+{% endblock body %}
